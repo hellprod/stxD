@@ -25,7 +25,7 @@ SECRET_KEY = 'w4p)==0g=y!d$nb2zu#(s260(gu%y8jpei))^t6)ik5^!%bsd8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     #
     'bootstrap3',
     #
-    'movies',
+    'films',
 ]
 
 MIDDLEWARE = [

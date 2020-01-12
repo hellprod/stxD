@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from films.views import hello_world, error_page
+
+from films.views import MoviesListAll
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', hello_world),
+    path('error/', error_page),
+    path('movies/', MoviesListAll.as_view(), ),
 ]
