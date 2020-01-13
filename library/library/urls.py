@@ -18,11 +18,14 @@ from django.urls import path
 
 from films.views import hello_world, error_page
 
-from films.views import MoviesListAll
+from films.views import MoviesListAll, GenreListAll, PostCreateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello_world),
     path('error/', error_page),
     path('movies/', MoviesListAll.as_view(), ),
+    path('movie/add', PostCreateView.as_view(), ),
+    path('genres/', GenreListAll.as_view(), ),
 ]

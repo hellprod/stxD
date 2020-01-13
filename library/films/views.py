@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
-from films.models import Movie
+from films.models import Movie, Genre
+
+from films.forms import MovieForm
 
 
 def hello_world(request):
@@ -12,6 +14,7 @@ def hello_world(request):
     <li><a href="/">hello PYTHON</a> </li>
     <li><a href="error/">404</a> </li>
     <li><a href="movies/">lista filmów</a> </li>
+    <li><a href="genres/">lista gatunków</a> </li>
     </ul>
     """
     return HttpResponse(f"Hello python {linki}")
@@ -25,3 +28,17 @@ class MoviesListAll(ListView):
     model = Movie
     template_name = "movie_list.html"
     context_object_name = "movies"
+
+
+class PostCreateView(CreateView):
+    model = Movie
+    form_class = MovieForm
+    success_url = "/movie/add"
+    template_name = "movie_add.html"
+
+
+class GenreListAll(ListView):
+    model = Genre
+    template_name = "genre_list.html"
+    context_object_name = "genres"
+
