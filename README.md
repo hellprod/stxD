@@ -1,18 +1,13 @@
-"mała biblioteka"
-
-movie all - ok
-
-movie add - ok
-
-movie del - TODO
-
-movie edit - TODO
+<h1>"mała biblioteka"<h1>
 
 
-genre all - OK
+<p>movie all - ok</p>
+<p>movie add - ok</p>
+<p>movie del - TODO</p>
+<p>movie edit - TODO</p>
 
-genre add - OK
 
-genre del - TODO
-
-genre edit - TODO
+<p>genre all - OK</p>
+<p>genre add - OK</p>
+<p>genre del - TODO</p>
+<p>genre edit - TODO</p>
