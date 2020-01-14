@@ -18,7 +18,7 @@ from django.urls import path
 
 from films.views import hello_world, error_page
 
-from films.views import MoviesListAll, GenreListAll, PostCreateView
+from films.views import MoviesListAll, GenreListAll, PostCreateView, PostCreateGenreView
 
 
 urlpatterns = [
@@ -28,4 +28,7 @@ urlpatterns = [
     path('movies/', MoviesListAll.as_view(), ),
     path('movie/add', PostCreateView.as_view(), ),
     path('genres/', GenreListAll.as_view(), ),
+    path('genre/add', PostCreateGenreView.as_view(), ),
 ]
+
+

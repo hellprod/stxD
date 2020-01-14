@@ -5,7 +5,7 @@ from django.views.generic import ListView, CreateView
 
 from films.models import Movie, Genre
 
-from films.forms import MovieForm
+from films.forms import MovieForm, GenreForm
 
 
 def hello_world(request):
@@ -41,4 +41,11 @@ class GenreListAll(ListView):
     model = Genre
     template_name = "genre_list.html"
     context_object_name = "genres"
+
+
+class PostCreateGenreView(CreateView):
+    model = Genre
+    form_class = GenreForm
+    success_url = "/genre/add"
+    template_name = "genre_add.html"
 
