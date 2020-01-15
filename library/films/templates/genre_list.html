@@ -18,6 +18,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">gatunek</th>
+      <th scope="col" class="text-right">akcja</th>
     </tr>
   </thead>
 
@@ -26,6 +27,12 @@
     <tr>
       <th scope="row">{{ genre.id }}</th>
       <td>{{ genre.name }}</td>
+      <td>
+          <ul class="text-right">
+              <li><a href="/genre/update/{{ genre.id }}">edytuj gatunek</a> </li>
+              <li><a href="/genre/delete/{{ genre.id }}">usuń gatunek</a> </li>
+          </ul>
+      </td>
     </tr>
   </tbody>
     {% endfor %}

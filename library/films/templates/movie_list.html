@@ -14,22 +14,29 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">tytuł</th>
-      <th scope="col">rok</th>
-      <th scope="col">gatunek</th>
-      <th scope="col">opis</th>
+        <th scope="col">#</th>
+        <th scope="col">tytuł</th>
+        <th scope="col">rok</th>
+        <th scope="col">gatunek</th>
+        <th scope="col">opis</th>
+        <th scope="col" class="text-right">akcja</th>
     </tr>
   </thead>
 
     {% for movie in movies %}
     <tbody>
     <tr>
-      <th scope="row">{{ movie.id }}</th>
-      <td>{{ movie.name }}</td>
-      <td>{{ movie.year }}</td>
-      <td>{{ movie.Genre }}</td>
-      <td>{{ movie.summary }}</td>
+        <th scope="row">{{ movie.id }}</th>
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.Genre }}</td>
+        <td>{{ movie.summary }}</td>
+        <td>
+            <ul class="text-right">
+                <li><a href="/movie/update/{{ movie.id }}">edytuj film</a> </li>
+                <li><a href="/movie/delete/{{ movie.id }}">usuń film</a> </li>
+            </ul>
+        </td>
     </tr>
   </tbody>
     {% endfor %}

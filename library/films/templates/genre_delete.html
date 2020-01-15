@@ -11,7 +11,9 @@
 </div>
 
 <form method="post">{% csrf_token %}
-    <p>Czy chcesz usunąć <h2>"{{ object }}"</h2>?</p>
+    <p>Czy chcesz usunąć <h2>
+        {% csrf_token %}
+        "{{ object }}"</h2>?</p>
     <input type="submit" value="Confirm">
 </form>
 
