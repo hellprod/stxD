@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -34,7 +35,7 @@ class MoviesListAll(ListView):
 class PostCreateView(CreateView):
     model = Movie
     form_class = MovieForm
-    success_url = "/movie/add"
+    success_url = "/movies"
     template_name = "movie_add.html"
 
 
@@ -46,9 +47,10 @@ class PostUpdateMovieView(UpdateView):
 
 
 class PostDeleteMovieView(DeleteView):
-    model = MovieForm
+    model = Movie
     template_name = "movie_delete.html"
     success_url = '/movies'
+#
 
 
 class GenreListAll(ListView):
