@@ -9,5 +9,5 @@
 
 <p>genre all - OK</p>
 <p>genre add - OK</p>
-<p>genre del - TODO</p>
-<p>genre edit - TODO</p>
+<p>genre del - OK</p>
+<p>genre edit - OK</p>

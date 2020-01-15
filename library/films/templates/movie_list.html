@@ -4,7 +4,7 @@
     <div class="panel-heading">
         <h3>LISTA FILMÓW</h3>
         <ul class="text-right">
-            <li><a href="../movie/add">dodaj film</a> </li>
+            <li><a href="/movie/add">dodaj film</a> </li>
         </ul>
     </div>
 </div>
@@ -15,6 +15,7 @@
       <th scope="col">#</th>
       <th scope="col">tytuł</th>
       <th scope="col">rok</th>
+      <th scope="col">gatunek</th>
       <th scope="col">opis</th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
       <th scope="row">{{ movie.id }}</th>
       <td>{{ movie.name }}</td>
       <td>{{ movie.year }}</td>
+      <td>{{ movie.Genre }}</td>
       <td>{{ movie.summary }}</td>
     </tr>
   </tbody>
