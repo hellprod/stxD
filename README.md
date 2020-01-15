@@ -3,8 +3,8 @@
 
 <p>movie all - ok</p>
 <p>movie add - ok</p>
-<p>movie del - TODO</p>
-<p>movie edit - TODO</p>
+<p>movie del - OK</p>
+<p>movie edit - OK</p>
 
 
 <p>genre all - OK</p>

@@ -19,7 +19,7 @@ from django.urls import path
 from films.views import hello_world, error_page
 
 from films.views import MoviesListAll, GenreListAll, PostCreateView, PostCreateGenreView, PostUpdateGenreView, \
-    PostDeleteGenreView
+    PostDeleteGenreView, PostUpdateMovieView, PostDeleteMovieView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +30,7 @@ urlpatterns = [
     path('genres/', GenreListAll.as_view(), name="genre_list"),
     path('genre/add', PostCreateGenreView.as_view(), ),
     path('genre/update/<int:pk>', PostUpdateGenreView.as_view(), name="genre_edit"),
+    path('movie/update/<int:pk>', PostUpdateMovieView.as_view(), name="movie_edit"),
     path('genre/delete/<int:pk>', PostDeleteGenreView.as_view(), name="genre_delete"),
+    path('movie/delete/<int:pk>', PostDeleteMovieView.as_view(), name="movie_delete"),
 ]

@@ -38,6 +38,19 @@ class PostCreateView(CreateView):
     template_name = "movie_add.html"
 
 
+class PostUpdateMovieView(UpdateView):
+    model = Movie
+    form_class = MovieForm
+    template_name = "movie_update.html"
+    success_url = "/movies"
+
+
+class PostDeleteMovieView(DeleteView):
+    model = MovieForm
+    template_name = "movie_delete.html"
+    success_url = '/movies'
+
+
 class GenreListAll(ListView):
     model = Genre
     template_name = "genre_list.html"
@@ -60,6 +73,6 @@ class PostUpdateGenreView(UpdateView):
 
 class PostDeleteGenreView(DeleteView):
     model = Genre
-    template_name = "author_confirm_delete.html"
+    template_name = "genre_delete.html"
     success_url = '/genres'
 
