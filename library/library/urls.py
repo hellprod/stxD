@@ -14,12 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.db import router
+from django.urls import path, include
 
 from films.views import hello_world, error_page
 
 from films.views import MoviesListAll, GenreListAll, PostCreateView, PostCreateGenreView, PostUpdateGenreView, \
-    PostDeleteGenreView, PostUpdateMovieView, PostDeleteMovieView
+    PostDeleteGenreView, PostUpdateMovieView, PostDeleteMovieView, UserViewSet, MovieViewSet, UserViewSet, GroupViewSet
+#api
+from rest_framework import routers
+
+from rest_framework.authtoken import views
+
+
+router = routers.DefaultRouter()
+router.register('users', UserViewSet)
+router.register('groups', GroupViewSet)
+router.register('api-movies', MovieViewSet, base_name='s')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +45,7 @@ urlpatterns = [
     path('movie/update/<int:pk>', PostUpdateMovieView.as_view(), name="movie_edit"),
     path('genre/delete/<int:pk>', PostDeleteGenreView.as_view(), name="genre_delete"),
     path('movie/delete/<int:pk>', PostDeleteMovieView.as_view(), name="movie_delete"),
+    path('api/', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-movies/', views.obtain_auth_token),
 ]

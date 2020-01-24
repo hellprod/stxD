@@ -6,8 +6,15 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from films.models import Movie, Genre
-
 from films.forms import MovieForm, GenreForm
+#api
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets, filters
+from films.serializers import UserSerializer, GroupSerializer
+#myapi
+from films.serializers import MovieSerializer
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 
 def hello_world(request):
@@ -78,3 +85,43 @@ class PostDeleteGenreView(DeleteView):
     template_name = "genre_delete.html"
     success_url = '/genres'
 
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
+# class MovieViewSet(viewsets.ModelViewSet):
+class MovieViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    # filter_backends = (filters.SearchFilter, filters.OrderingFilter)
+    # filter_fields = ("name", "year", "summary")
+    # search_fields = ('name', "year")
+    # ordering_fields = ("year",)
+
+    def get_queryset(self):
+        queryset = self.queryset
+        return queryset
+
+    # def retrieve(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     serializer = MovieSerializer(instance)
+    #     return Response(serializer.data)
+    #
+    # def create(self, request, *args, **kwargs):
+    #     if request.user.is_staff:
+    #         return super().create(request, *args, **kwargs)
+    #     else:
+    #         return Response(status=status.HTTP_400_BAD_REQUEST)
