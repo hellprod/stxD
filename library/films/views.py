@@ -19,12 +19,14 @@ from rest_framework.response import Response
 
 def hello_world(request):
     linki = """
+    <html>
     <ul>
     <li><a href="/">hello PYTHON</a> </li>
     <li><a href="error/">404</a> </li>
     <li><a href="movies/">lista filmów</a> </li>
     <li><a href="genres/">lista gatunków</a> </li>
     </ul>
+    </html>
     """
     return HttpResponse(f"Hello python {linki}")
 
