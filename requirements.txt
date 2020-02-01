@@ -3,3 +3,4 @@ django-bootstrap3==11.0.0
 ipython==7.11
 djangorestframework==3.10.3
 django-filter==2.2.0
+
