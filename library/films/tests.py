@@ -4,7 +4,7 @@ from django.urls import resolve
 # Create your tests here.
 from films.forms import MovieForm
 from films.models import Genre, Movie
-from films.views import hello_world
+from films.views import hello_world, MoviesListAll
 
 
 class MyTests(TestCase):
@@ -52,3 +52,7 @@ class HomePageTest(TestCase):
         # self.assertTrue(response.content.startswith(b'<html>'))
         self.assertIn(b'<li><a href="error/">404</a> </li>', response.content)
         # self.assertTrue(response.content.endswith(b'</html>'))
+
+    def test_url_resolves_movie_list_view(self):
+        found = resolve('movies/')
+        self.assertEqual(found.func, MoviesListAll)
